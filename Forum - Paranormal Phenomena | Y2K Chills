@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forum - Paranormal Phenomena | Y2K Chills</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:wght@400;700&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#AA0000', // Retro red
+            secondary: '#000080', // Navy blue
+            accent: '#FFFF00', // Retro yellow
+            dark: '#111111', // Near black
+            paper: '#F0E6D2', // Old paper
+          },
+          fontFamily: {
+            'special': ['"Special Elite"', 'cursive'],
+            'courier': ['"Courier Prime"', 'monospace'],
+            'georgia': ['Georgia', 'serif'],
+          },
+          boxShadow: {
+            'retro': '2px 2px 0px #000000',
+            'glow': '0 0 8px rgba(170, 0, 0, 0.6)',
+          }
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+      }
+      .bg-pattern {
+        background-image: url('https://picsum.photos/id/1015/1000/1000');
+        background-blend-mode: overlay;
+        background-size: 300px;
+        background-repeat: repeat;
+      }
+      .retro-border {
+        border: 1px solid #000;
+        box-shadow: 2px 2px 0px #000000;
+      }
+      .scanline {
+        background: linear-gradient(to bottom, 
+          rgba(255,255,255,0) 50%, 
+          rgba(0,0,0,0.05) 50%);
+        background-size: 100% 4px;
+        pointer-events: none;
+      }
+      .marquee {
+        animation: marquee 20s linear infinite;
+      }
+      @keyframes marquee {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+      }
+      .crt-effect {
+        position: relative;
+      }
+      .crt-effect::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.03));
+        background-size: 100% 2px, 3px 100%;
+        pointer-events: none;
+      }
+      .post-border {
+        border-left: 2px solid #AA0000;
+        border-right: 2px solid #AA0000;
+      }
+      .goth-avatar {
+        filter: contrast(1.2) brightness(0.9);
+        transition: all 0.3s ease;
+      }
+      .goth-avatar:hover {
+        filter: contrast(1.5) brightness(0.8) saturate(1.2);
+        transform: scale(1.05);
+      }
+    }
+  </style>
+</head>
+
+<body class="font-courier bg-dark text-paper min-h-screen flex flex-col crt-effect">
+  <!-- Retro Marquee -->
+  <div class="bg-primary text-accent py-1 overflow-hidden whitespace-nowrap">
+    <div class="marquee inline-block">
+      ⚠️ WARNING: EXPLICIT CONTENT - PARENTAL DISCRETION ADVISED ⚠️ | 
+      NEW REPLY TO "DOUBLE COAT PHENOMENON" - 11/01/2003 | 
+      WEEKLY CHAT: FRIDAY 10PM EST - "GLOBAL PARANORMAL PATTERNS" | 
+      ⚠️ WARNING: EXPLICIT CONTENT - PARENTAL DISCRETION ADVISED ⚠️
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-secondary border-b-2 border-primary">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+          <div class="text-accent text-2xl">
+            <i class="fa fa-bolt"></i>
+          </div>
+          <a href="#" class="text-2xl font-special text-accent">Y2K CHILLS</a>
+          <span class="text-xs text-paper/70 hidden sm:inline">Est. 1999</span>
+        </div>
+        
+        <!-- Main Navigation - Desktop -->
+        <nav class="hidden md:flex items-center space-x-5">
+          <a href="#" class="text-paper hover:text-accent transition-colors">HOME</a>
+          <a href="#" class="text-paper hover:text-accent transition-colors">STORIES</a>
+          <a href="#" class="text-paper hover:text-accent transition-colors">URBAN LEGENDS</a>
+          <a href="#" class="text-paper hover:text-accent transition-colors">PERSONAL TALES</a>
+          <a href="#" class="text-accent font-bold">FORUM</a>
+        </nav>
+        
+        <!-- User Actions -->
+        <div class="flex items-center space-x-3">
+          <button class="hidden md:block px-3 py-1 bg-primary text-paper border border-black hover:bg-primary/80 transition-colors text-sm">
+            POST NEW THREAD
+          </button>
+          
+          <!-- User Avatar - Gothic Style -->
+          <div class="relative group">
+            <button class="w-8 h-8 rounded border-1 border-primary overflow-hidden">
+              <img src="https://picsum.photos/id/1083/200/200" alt="User" class="w-full h-full object-cover goth-avatar">
+            </button>
+            
+            <!-- Dropdown -->
+            <div class="absolute right-0 mt-1 w-40 bg-secondary border border-black shadow-retro py-1 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all text-sm">
+              <a href="#" class="block px-3 py-1 hover:bg-primary/30">My Profile</a>
+              <a href="#" class="block px-3 py-1 hover:bg-primary/30">My Posts</a>
+              <a href="#" class="block px-3 py-1 hover:bg-primary/30">Settings</a>
+              <div class="border-t border-primary/30 my-1"></div>
+              <a href="#" class="block px-3 py-1 hover:bg-primary/30">Log Out</a>
+            </div>
+          </div>
+          
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden text-paper" id="mobile-menu-button">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-secondary border-t border-primary" id="mobile-menu">
+      <div class="px-4 py-2">
+        <div class="relative mb-3">
+          <input type="text" placeholder="Search forum..." 
+                 class="w-full pl-8 pr-2 py-1 bg-dark border border-primary text-paper text-sm">
+          <i class="fa fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-primary"></i>
+        </div>
+        <nav class="space-y-1 text-sm">
+          <a href="#" class="block px-3 py-1 hover:bg-primary/20">HOME</a>
+          <a href="#" class="block px-3 py-1 hover:bg-primary/20">STORIES</a>
+          <a href="#" class="block px-3 py-1 hover:bg-primary/20">URBAN LEGENDS</a>
+          <a href="#" class="block px-3 py-1 hover:bg-primary/20">PERSONAL TALES</a>
+          <a href="#" class="block px-3 py-1 bg-primary/30 text-accent">FORUM</a>
+        </nav>
+        <div class="mt-2">
+          <button class="w-full px-3 py-1 bg-primary text-paper border border-black hover:bg-primary/80 transition-colors text-sm">
+            POST NEW THREAD
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 container mx-auto px-4 py-5">
+    <!-- Breadcrumb Navigation -->
+    <div class="text-xs text-paper/70 mb-4">
+      <a href="#" class="hover:text-accent">Forum</a> &gt; 
+      <a href="#" class="hover:text-accent">Paranormal Phenomena</a> &gt; 
+      <span class="text-paper">"Double Coat" Global Sightings Compilation</span>
+    </div>
+    
+    <!-- Thread Header -->
+    <div class="bg-secondary retro-border p-4 mb-4">
+      <div class="flex items-center justify-between mb-3">
+        <h1 class="text-xl font-special text-accent">【LONG-TERM DISCUSSION】"DOUBLE COAT" GLOBAL SIGHTING REPORTS</h1>
+        <div class="flex space-x-2">
+          <button class="px-2 py-1 bg-dark text-paper/80 hover:bg-primary/20 text-xs flex items-center">
+            <i class="fa fa-bookmark mr-1"></i> Save
+          </button>
+          <button class="px-2 py-1 bg-dark text-paper/80 hover:bg-primary/20 text-xs flex items-center">
+            <i class="fa fa-share mr-1"></i> Share
+          </button>
+        </div>
+      </div>
+      
+      <div class="flex flex-wrap gap-4 text-sm">
+        <div class="flex-1 min-w-[200px]">
+          <p class="text-paper/70">Started by <a href="#" class="text-accent hover:underline">SpectralArchivist</a></p>
+          <p class="text-paper/50 text-xs">October 31, 2003 - 11:23 PM</p>
+        </div>
+        <div class="flex-1 min-w-[200px]">
+          <p class="text-paper/70">Last reply by <a href="#" class="text-accent hover:underline">SpectralArchivist</a></p>
+          <p class="text-paper/50 text-xs">November 1, 2003 - 7:10 PM</p>
+        </div>
+        <div class="flex-1 min-w-[200px]">
+          <p class="text-paper/70">Views: 1,487 | Replies: 7</p>
+          <p class="text-paper/50 text-xs">in <a href="#" class="hover:text-accent">Paranormal Phenomena</a></p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Warning Banner -->
+    <div class="bg-primary/90 border border-black p-3 mb-5 text-sm">
+      <p class="flex items-center"><i class="fa fa-exclamation-circle mr-2 text-accent"></i> 
+      REMINDER: This thread contains unsubstantiated claims and potentially disturbing content. 
+      All posts are the opinions of individual users and do not represent Y2K Chills.</p>
+    </div>
+    
+    <div class="flex flex-col lg:flex-row gap-5">
+      <!-- Thread Content -->
+      <div class="flex-1">
+        <!-- Original Post -->
+        <div class="bg-secondary retro-border mb-6">
+          <div class="bg-primary/20 p-3 border-b border-black flex flex-wrap items-start gap-3">
+            <div class="shrink-0">
+              <!-- Gothic avatar for thread starter -->
+              <img src="https://picsum.photos/id/1074/200/200" alt="SpectralArchivist" class="w-10 h-10 rounded border border-primary goth-avatar">
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <a href="#" class="text-accent font-bold">SpectralArchivist</a>
+                <span class="bg-primary text-paper text-xs px-1.5 py-0.5">Thread Starter</span>
+              </div>
+              <p class="text-paper/50 text-xs">Posted: October 31, 2003 - 11:23 PM</p>
+            </div>
+          </div>
+          
+          <div class="p-4 post-border">
+            <p class="mb-3">Another Halloween, and our old friend's activity is picking up again. This thread compiles sightings across decades. Please contribute if you have information.</p>
+            
+            <p class="mb-3">Rules as always: share experiences, discuss rationally, no trolling, and no links to questionable dark web sites!!!</p>
+            
+            <div class="my-4 p-3 bg-dark/50 border-l-4 border-primary">
+              <p class="mb-2"><span class="text-primary font-bold">1981 (possibly):</span> Fire in Berlin, Germany. Father deceased, mother missing. The poor young boy became the phenomenon itself, though perhaps he didn't realize it at the time :(</p>
+              
+              <p class="mb-2"><span class="text-primary font-bold">November 1984:</span> First documented official contact in Berlin, Germany, with subsequent rumors!!!)) Truly exciting news :)</p>
+              
+              <p class="mb-2"><span class="text-primary font-bold">June 1995:</span> First sighting outside Berlin in Munich's Englischer Garten, Germany</p>
+              
+              <p class="mb-2"><span class="text-primary font-bold">August 1999:</span> Camper sightings in Michigan's Upper Peninsula, USA. Our lovely phenomenon finally made it to North America :—)</p>
+              
+              <p><span class="text-primary font-bold">December 2001:</span> Urban explorer disappearance in Sarasota, Florida, USA</p>
+            </div>
+            
+            <div class="flex justify-between items-center mt-4 pt-3 border-t border-primary/30 text-xs">
+              <div class="flex space-x-3">
+                <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-thumbs-up mr-1"></i> 42</button>
+                <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-flag mr-1"></i> Report</button>
+              </div>
+              <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-quote-right mr-1"></i> Reply</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Reply Header -->
+        <div class="bg-secondary retro-border p-3 mb-4">
+          <h2 class="font-special text-accent text-lg">USER REPLIES (7)</h2>
+        </div>
+        
+        <!-- Replies -->
+        <div class="space-y-6">
+          <!-- Reply 1 -->
+          <div class="bg-secondary retro-border">
+            <div class="p-3 border-b border-black flex flex-wrap items-start gap-3">
+              <div class="shrink-0">
+                <!-- Gothic/metal style avatar -->
+                <img src="https://picsum.photos/id/1079/200/200" alt="NachtJäger" class="w-8 h-8 rounded border border-primary goth-avatar">
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <a href="#" class="text-accent font-bold">NachtJäger</a>
+                  <span class="text-paper/50 text-xs">#1</span>
+                </div>
+                <p class="text-paper/50 text-xs">Posted: November 1, 2003 - 12:15 AM</p>
+              </div>
+            </div>
+            
+            <div class="p-4 post-border text-sm">
+              <p class="mb-2">First! Happy Halloween, you freaks.</p>
+              
+              <p>OP did a decent job compiling, but let me add something substantial. Through certain channels, I obtained fragments of an unofficial memo from West German police after the '84 incident (believe it or not). It mentions they found a cage made of charred wicker in the fire ruins, extremely primitive in shape. The memo used the term "kultisch-rituell" (cultic-ritualistic). So those tabloids weren't entirely bullshitting. This is definitely connected to some ancient damn European pagan sacrifice ritual mixed with something Eastern.</p>
+              
+              <div class="flex justify-between items-center mt-4 pt-3 border-t border-primary/30 text-xs">
+                <div class="flex space-x-3">
+                  <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-thumbs-up mr-1"></i> 18</button>
+                  <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-flag mr-1"></i> Report</button>
+                </div>
+                <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-quote-right mr-1"></i> Reply</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Reply 2 -->
+          <div class="bg-secondary retro-border">
+            <div class="p-3 border-b border-black flex flex-wrap items-start gap-3">
+              <div class="shrink-0">
+                <!-- Gothic/horror style avatar -->
+                <img src="https://picsum.photos/id/1080/200/200" alt="StaticMaggie" class="w-8 h-8 rounded border border-primary goth-avatar">
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <a href="#" class="text-accent font-bold">StaticMaggie</a>
+                  <span class="text-paper/50 text-xs">#2</span>
+                </div>
+                <p class="text-paper/50 text-xs">Posted: November 1, 2003 - 1:45 AM</p>
+              </div>
+            </div>
+            
+            <div class="p-4 post-border text-sm">
+              <p>@NachtJäger Cool story, bro.</p>
+              
+              <div class="flex justify-between items-center mt-4 pt-3 border-t border-primary/30 text-xs">
+                <div class="flex space-x-3">
+                  <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-thumbs-up mr-1"></i> 5</button>
+                  <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-flag mr-1"></i> Report</button>
+                </div>
+                <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-quote-right mr-1"></i> Reply</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Reply 3 -->
+          <div class="bg-secondary retro-border">
+            <div class="p-3 border-b border-black flex flex-wrap items-start gap-3">
+              <div class="shrink-0">
+                <!-- Occult/gothic style avatar -->
+                <img src="https://picsum.photos/id/1082/200/200" alt="CurseBreaker77" class="w-8 h-8 rounded border border-primary goth-avatar">
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <a href="#" class="text-accent font-bold">CurseBreaker77</a>
+                  <span class="text-paper/50 text-xs">#3</span>
+                </div>
+                <p class="text-paper/50 text-xs">Posted: November 1, 2003 - 8:02 AM</p>
+              </div>
+            </div>
+            
+            <div class="p-4 post-border text-sm">
+              <p class="mb-2">May the Lord protect all our souls.</p>
+              
+              <p class="mb-2">This is not some energy or pagan ritual. This is pure demon.</p>
+              
+              <p class="mb-2">It wears two coats as a symbol of deception and hiding. The inner one is a manifestation of Hell.</p>
+              
+              <p class="mb-2">The questions it asks are meant to capture your soul. Once you attempt to answer using human logic, you acknowledge its power within your cognitive system, and it can exert power over you.</p>
+              
+              <p>The only way, the best way, is to pray in the Lord's name and leave immediately. Don't talk, don't look at each other.</p>
+              
+              <div class="flex justify-between items-center mt-4 pt-3 border-t border-primary/30 text-xs">
+                <div class="flex space-x-3">
+                  <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-thumbs-up mr-1"></i> 23</button>
+                  <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-flag mr-1"></i> Report</button>
+                </div>
+                <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-quote-right mr-1"></i> Reply</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Reply 4 -->
+          <div class="bg-secondary retro-border">
+            <div class="p-3 border-b border-black flex flex-wrap items-start gap-3">
+              <div class="shrink-0">
+                <!-- Horror/paranormal style avatar -->
+                <img src="https://picsum.photos/id/1081/200/200" alt="MichiganMothman" class="w-8 h-8 rounded border border-primary goth-avatar">
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <a href="#" class="text-accent font-bold">MichiganMothman</a>
+                  <span class="text-paper/50 text-xs">#4</span>
+                </div>
+                <p class="text-paper/50 text-xs">Posted: November 1, 2003 - 10:31 AM</p>
+              </div>
+            </div>
+            
+            <div class="p-4 post-border text-sm">
+              <p>I analyzed the last few seconds of that poor Florida guy's tape from 2001. Beneath the burning sounds, I used software to isolate a very, very faint background noise – a reversed jazz snippet. I flipped it forward. Sounds familiar, but I can't identify it. Any music experts here? This could be crucial.</p>
+              
+              <div class="flex justify-between items-center mt-4 pt-3 border-t border-primary/30 text-xs">
+                <div class="flex space-x-3">
+                  <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-thumbs-up mr-1"></i> 31</button>
+                  <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-flag mr-1"></i> Report</button>
+                </div>
+                <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-quote-right mr-1"></i> Reply</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Reply 5 -->
+          <div class="bg-secondary retro-border">
+            <div class="p-3 border-b border-black flex flex-wrap items-start gap-3">
+              <div class="shrink-0">
+                <!-- Gothic/metal style avatar -->
+                <img src="https://picsum.photos/id/1077/200/200" alt="HUyuxilania-13" class="w-8 h-8 rounded border border-primary goth-avatar">
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <a href="#" class="text-accent font-bold">HUyuxilania-13</a>
+                  <span class="text-paper/50 text-xs">#5</span>
+                </div>
+                <p class="text-paper/50 text-xs">Posted: November 1, 2003 - 3:20 PM</p>
+              </div>
+            </div>
+            
+            <div class="p-4 post-border text-sm">
+              <p>Re: @MichiganMothman about the music: Dude! I've heard that track! Back in '07 when I was driving alone in Michigan, I'd just stepped out to take a leak in the roadside bushes. When I got back to the car, my old radio turned on by itself, playing exactly that!</p>
+              
+              <div class="flex justify-between items-center mt-4 pt-3 border-t border-primary/30 text-xs">
+                <div class="flex space-x-3">
+                  <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-thumbs-up mr-1"></i> 14</button>
+                  <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-flag mr-1"></i> Report</button>
+                </div>
+                <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-quote-right mr-1"></i> Reply</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Reply 6 -->
+          <div class="bg-secondary retro-border">
+            <div class="p-3 border-b border-black flex flex-wrap items-start gap-3">
+              <div class="shrink-0">
+                <!-- Conspiracy/occult style avatar -->
+                <img src="https://picsum.photos/id/1084/200/200" alt="TinFoilHat42" class="w-8 h-8 rounded border border-primary goth-avatar">
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <a href="#" class="text-accent font-bold">TinFoilHat42</a>
+                  <span class="text-paper/50 text-xs">#6</span>
+                </div>
+                <p class="text-paper/50 text-xs">Posted: November 1, 2003 - 5:20 PM</p>
+              </div>
+            </div>
+            
+            <div class="p-4 post-border text-sm">
+              <p class="mb-2">You're all ignoring one possibility: government experiment.</p>
+              
+              <p class="mb-2">Think about the timeline: late Cold War. Location: Berlin.</p>
+              
+              <p class="mb-2">The fire wasn't an accident – it was a containment breach. That family was probably used in some telepathic experiment that went wrong, causing a phase shift into its current form. Its appearance in the US isn't random diffusion – both Florida and Michigan have abandoned military bases and secret research facilities.......what do you think?</p>
+              
+              <p>Of course the authorities deny everything. They're just covering up their own mess.</p>
+              
+              <div class="flex justify-between items-center mt-4 pt-3 border-t border-primary/30 text-xs">
+                <div class="flex space-x-3">
+                  <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-thumbs-up mr-1"></i> 27</button>
+                  <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-flag mr-1"></i> Report</button>
+                </div>
+                <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-quote-right mr-1"></i> Reply</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Reply 7 (OP) -->
+          <div class="bg-secondary retro-border">
+            <div class="p-3 border-b border-black flex flex-wrap items-start gap-3">
+              <div class="shrink-0">
+                <!-- Same as original poster's avatar -->
+                <img src="https://picsum.photos/id/1074/200/200" alt="SpectralArchivist" class="w-8 h-8 rounded border border-primary goth-avatar">
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <a href="#" class="text-accent font-bold">SpectralArchivist</a>
+                  <span class="bg-primary text-paper text-xs px-1.5 py-0.5">Thread Starter</span>
+                  <span class="text-paper/50 text-xs">#7</span>
+                </div>
+                <p class="text-paper/50 text-xs">Posted: November 1, 2003 - 7:10 PM</p>
+              </div>
+            </div>
+            
+            <div class="p-4 post-border text-sm">
+              <p class="mb-2">Thanks for the contributions everyone. Lots of valuable information that I'll incorporate into the main post.</p>
+              
+              <p>Stay vigilant, stay alert. If anyone encounters it, remember: don't answer, don't linger, don't let it open the coats.</p>
+              
+              <div class="flex justify-between items-center mt-4 pt-3 border-t border-primary/30 text-xs">
+                <div class="flex space-x-3">
+                  <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-thumbs-up mr-1"></i> 35</button>
+                  <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-flag mr-1"></i> Report</button>
+                </div>
+                <button class="text-paper/60 hover:text-primary flex items-center"><i class="fa fa-quote-right mr-1"></i> Reply</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Reply Form -->
+        <div class="bg-secondary retro-border p-4 mt-8">
+          <h3 class="font-special text-accent text-lg mb-3">REPLY TO THIS THREAD</h3>
+          
+          <form>
+            <div class="mb-3">
+              <textarea rows="5" class="w-full bg-dark border border-primary text-paper px-3 py-2 text-sm" placeholder="Share your thoughts..."></textarea>
+            </div>
+            
+            <div class="flex flex-wrap justify-between items-center gap-3">
+              <div class="text-xs text-paper/70">
+                <p>Remember: No personal attacks, stay on topic, and avoid sharing personal information.</p>
+              </div>
+              
+              <div class="flex space-x-2">
+                <button type="button" class="px-3 py-1 bg-dark text-paper/80 hover:bg-primary/20 text-sm">PREVIEW</button>
+                <button type="submit" class="px-3 py-1 bg-primary text-paper border border-black hover:bg-primary/80 transition-colors text-sm">POST REPLY</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <!-- Right Sidebar -->
+      <aside class="lg:w-64 shrink-0 space-y-5">
+        <!-- Forum Navigation -->
+        <div class="bg-secondary retro-border p-3">
+          <h3 class="font-special text-accent text-base mb-3">FORUM SECTIONS</h3>
+          <ul class="space-y-1 text-sm">
+            <li>
+              <a href="#" class="block px-2 py-1.5 hover:bg-primary/20">
+                <i class="fa fa-fire mr-2 text-primary"></i>
+                <span>General Discussion</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="block px-2 py-1.5 bg-primary/30 text-accent">
+                <i class="fa fa-ghost mr-2"></i>
+                <span>Paranormal Phenomena</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="block px-2 py-1.5 hover:bg-primary/20">
+                <i class="fa fa-map-marker mr-2 text-primary"></i>
+                <span>Location Reports</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="block px-2 py-1.5 hover:bg-primary/20">
+                <i class="fa fa-book mr-2 text-primary"></i>
+                <span>Research & Theories</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="block px-2 py-1.5 hover:bg-primary/20">
+                <i class="fa fa-camera mr-2 text-primary"></i>
+                <span>Evidence Gallery</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Thread Stats -->
+        <div class="bg-secondary retro-border p-3">
+          <h3 class="font-special text-accent text-base mb-3">THREAD STATS</h3>
+          <ul class="space-y-2 text-xs">
+            <li class="flex justify-between">
+              <span class="text-paper/70">Created</span>
+              <span class="text-paper">Oct 31, 2003</span>
+            </li>
+            <li class="flex justify-between">
+              <span class="text-paper/70">Last Activity</span>
+              <span class="text-paper">Nov 1, 2003</span>
+            </li>
+            <li class="flex justify-between">
+              <span class="text-paper/70">Views</span>
+              <span class="text-paper">1,487</span>
+            </li>
+            <li class="flex justify-between">
+              <span class="text-paper/70">Replies</span>
+              <span class="text-paper">7</span>
+            </li>
+            <li class="flex justify-between">
+              <span class="text-paper/70">Unique Posters</span>
+              <span class="text-paper">6</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Related Threads -->
+        <div class="bg-secondary retro-border p-3">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-special text-accent text-base">RELATED THREADS</h3>
+            <a href="#" class="text-xs text-primary hover:underline">more</a>
+          </div>
+          
+          <div class="space-y-2">
+            <a href="#" class="block p-2 bg-dark/70 border border-primary/30 hover:border-accent text-xs">
+              <span class="text-primary">1981</span>
+              <p class="text-paper mt-1">The Berlin Fire: Declassified Documents</p>
+            </a>
+            <a href="#" class="block p-2 bg-dark/70 border border-primary/30 hover:border-accent text-xs">
+              <span class="text-primary">2001</span>
+              <p class="text-paper mt-1">Mysterious Jazz Melodies in Paranormal Cases</p>
+            </a>
+            <a href="#" class="block p-2 bg-dark/70 border border-primary/30 hover:border-accent text-xs">
+              <span class="text-primary">1999</span>
+              <p class="text-paper mt-1">Michigan's Upper Peninsula Anomalies</p>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Active Users with Gothic Avatars -->
+        <div class="bg-secondary retro-border p-3">
+          <h3 class="font-special text-accent text-base mb-3">ACTIVE IN THIS THREAD</h3>
+          
+          <div class="flex flex-wrap gap-2">
+            <a href="#" class="relative group">
+              <img src="https://picsum.photos/id/1074/200/200" alt="SpectralArchivist" class="w-8 h-8 rounded border border-primary goth-avatar">
+              <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 w-max bg-secondary text-xs py-1 px-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible whitespace-nowrap">SpectralArchivist</span>
+            </a>
+            <a href="#" class="relative group">
+              <img src="https://picsum.photos/id/1079/200/200" alt="NachtJäger" class="w-8 h-8 rounded border border-primary goth-avatar">
+              <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 w-max bg-secondary text-xs py-1 px-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible whitespace-nowrap">NachtJäger</span>
+            </a>
+            <a href="#" class="relative group">
+              <img src="https://picsum.photos/id/1080/200/200" alt="StaticMaggie" class="w-8 h-8 rounded border border-primary goth-avatar">
+              <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 w-max bg-secondary text-xs py-1 px-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible whitespace-nowrap">StaticMaggie</span>
+            </a>
+            <a href="#" class="relative group">
+              <img src="https://picsum.photos/id/1082/200/200" alt="CurseBreaker77" class="w-8 h-8 rounded border border-primary goth-avatar">
+              <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 w-max bg-secondary text-xs py-1 px-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible whitespace-nowrap">CurseBreaker77</span>
+            </a>
+            <a href="#" class="relative group">
+              <img src="https://picsum.photos/id/1081/200/200" alt="MichiganMothman" class="w-8 h-8 rounded border border-primary goth-avatar">
+              <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 w-max bg-secondary text-xs py-1 px-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible whitespace-nowrap">MichiganMothman</span>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Gothic/Metal Ad Banner -->
+        <div class="border-2 border-primary bg-secondary p-3 text-center">
+          <p class="text-xs text-accent mb-1">SPONSORED</p>
+          <img src="https://picsum.photos/id/1073/300/200" alt="Gothic Paranormal Zine" class="w-full h-24 object-cover mb-2 border border-black goth-avatar">
+          <p class="text-xs font-bold">DARK REALMS ZINE</p>
+          <p class="text-xs text-paper/70">Gothic horror & paranormal</p>
+          <a href="#" class="inline-block text-xs text-primary mt-1 underline">Subscribe</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-secondary border-t-2 border-primary mt-8">
+    <div class="container mx-auto px-4 py-5">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-5 text-sm">
+        <div>
+          <div class="flex items-center space-x-2 mb-3">
+            <div class="text-accent text-xl">
+              <i class="fa fa-bolt"></i>
+            </div>
+            <span class="text-xl font-special text-accent">Y2K CHILLS</span>
+          </div>
+          <p class="text-paper/70 text-xs mb-3">Sharing horror stories from the turn of the millennium. 
+          All tales are anonymous and may be fictional.</p>
+          <div class="flex space-x-3">
+            <a href="#" class="text-paper/60 hover:text-accent"><i class="fa fa-icq"></i></a>
+            <a href="#" class="text-paper/60 hover:text-accent"><i class="fa fa-aim"></i></a>
+            <a href="#" class="text-paper/60 hover:text-accent"><i class="fa fa-envelope"></i></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-special text-accent mb-3">ABOUT</h4>
+          <ul class="space-y-1 text-xs">
+            <li><a href="#" class="text-paper/70 hover:text-accent">Site Info</a></li>
+            <li><a href="#" class="text-paper/70 hover:text-accent">Staff</a></li>
+            <li><a href="#" class="text-paper/70 hover:text-accent">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-special text-accent mb-3">HELP</h4>
+          <ul class="space-y-1 text-xs">
+            <li><a href="#" class="text-paper/70 hover:text-accent">Forum Rules</a></li>
+            <li><a href="#" class="text-paper/70 hover:text-accent">FAQ</a></li>
+            <li><a href="#" class="text-paper/70 hover:text-accent">Report Abuse</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-special text-accent mb-3">SUBSCRIBE</h4>
+          <p class="text-paper/70 text-xs mb-2">Get weekly forum updates via email</p>
+          <div class="flex">
+            <input type="email" placeholder="Your email" class="flex-1 px-2 py-1 bg-dark border border-primary text-paper text-xs">
+            <button class="bg-primary text-paper px-2 py-1 border border-primary hover:bg-primary/80 text-xs">
+              GO
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-primary/30 mt-5 pt-3 flex flex-col md:flex-row justify-between items-center text-xs">
+        <p class="text-paper/50">© 2003 Y2KChills.com - All posts are user-submitted</p>
+        <div class="flex space-x-4 mt-2 md:mt-0">
+          <a href="#" class="text-paper/50 hover:text-accent">Privacy</a>
+          <a href="#" class="text-paper/50 hover:text-accent">Terms</a>
+          <a href="#" class="text-paper/50 hover:text-accent">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Enhanced retro glitch effect for horror theme
+    setInterval(() => {
+      if (Math.random() < 0.12) { // More frequent glitches for horror effect
+        const glitchIntensity = Math.random() * 0.5 + 0.5;
+        const hueRotation = Math.random() * 5 - 2.5;
+        document.body.style.filter = `saturate(${1.2 + glitchIntensity}) hue-rotate(${hueRotation}deg) contrast(${0.9 + glitchIntensity * 0.3})`;
+        setTimeout(() => {
+          document.body.style.filter = 'none';
+        }, 30 + Math.random() * 40);
+      }
+    }, 3000);
+    
+    // Avatar hover effect
+    document.querySelectorAll('.goth-avatar').forEach(avatar => {
+      avatar.addEventListener('mouseenter', () => {
+        avatar.style.filter = 'contrast(1.6) brightness(0.7) saturate(1.4)';
+        avatar.style.transform = 'scale(1.1) rotate(2deg)';
+      });
+      
+      avatar.addEventListener('mouseleave', () => {
+        avatar.style.filter = 'contrast(1.2) brightness(0.9)';
+        avatar.style.transform = 'scale(1) rotate(0)';
+      });
+    });
+  </script>
+</body>
+</html>
